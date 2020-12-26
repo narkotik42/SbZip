@@ -1,0 +1,25 @@
+var
+  xSbZip : TSbZip;
+begin
+  xSbZip := TSbZip.Create(nil);
+  try
+    with xSbZip do
+    begin
+      MaskExt := '*.*';
+      MaskNotExt := '*.dcu;*.exe';
+      SourceSubFolders := True;
+      DestSubFolders := True;
+
+      SourceFileList.Add('C:\Users\salih\Desktop\folder4\uMain.pas');
+      SourceFileList.Add('C:\Users\salih\Desktop\folder4\uMain.dfm');
+      SourceFolderList.Add('C:\Users\salih\Desktop\folder2');
+      SourceFolderList.Add('C:\Users\salih\Desktop\folder3');
+      DestFileList.Add('a1.zip');
+      DestFileList.Add('C:\Users\salih\Desktop\ZipComp\Sample\Win32\Debug\A\a2.zip');
+
+      RunCompress;
+    end;
+  finally
+    FreeAndNil(xSbZip);
+  end;
+end;
